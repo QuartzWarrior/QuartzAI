@@ -1,0 +1,4 @@
+undetected-chromedriver
+selenium
+nextcord[speed]
+g4f
