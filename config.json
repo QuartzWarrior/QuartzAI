@@ -1,0 +1,13 @@
+{
+    "proxy_username_password": "",
+    "prodia_key": "",
+    "discord_bot_token": "",
+    "discord_client_id": 0,
+    "discord_client_secret": "",
+    "discord_redirect_uri": "",
+    "guild_id": 0,
+    "api_key_prefix": "",
+    "ipc_server_key": "",
+    "perspective_key": "",
+    "gemini_key": ""
+}

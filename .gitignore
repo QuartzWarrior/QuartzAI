@@ -1,6 +1,10 @@
 .gitignore
 proxies.csv
 user_settings.json
+hugging_face_cookies.json
+tmp.py
+.private
+.vscode
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

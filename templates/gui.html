@@ -1,0 +1,374 @@
+<html>
+
+<head>
+    <title>QuartzAI GUI</title>
+    <link rel="stylesheet" href="https://ai.quartzwarrior.xyz/style.css">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="" />
+    <meta name="twitter:title" content="QuartzAI GUI" />
+    <meta name="twitter:description" content="The GUI for QuartzAI" />
+    <meta name="twitter:image" content="https://ai.quartzwarrior.xyz/logo.jpeg" />
+    <meta property="og:title" content="QuartzAI GUI" />
+    <meta property="og:description" content="The GUI for QuartzAI" />
+    <meta property="og:image" content="https://ai.quartzwarrior.xyz/logo.jpeg" />
+</head>
+
+<body class="dark:bg-gray-900 dark:text-white max-h-screen"></body>
+<div id="cards"
+    class="container overflow-y-auto mr-2 mt-2 w-4/5 h-4/5 dark:bg-gray-800 bg-gray-100 rounded-md float-right">
+    <!--
+        // User chat
+        <div class="container mx-auto mt-4 w-11/12 h-fit dark:bg-gray-700 bg-gray-200 rounded-lg">
+        <img src="{{user_pfp}}" class="rounded-full float-right h-12 w-12 mr-2 mt-2 dark:bg-gray-900 bg-gray-50">
+        </img>
+        <p class="w-11/12 h-1/2 py-6 m-2 bg-transparent text-right">{{username}}</p>
+        <p class="w-11/12 h-1/2 pl-6 pt-2 pb-4 m-2 bg-transparent">Hi! My name is {{username}}</p>
+    </div>
+    // QuartzAI chat
+    <div class="container mx-auto mt-4 w-11/12 h-fit dark:bg-gray-700 bg-gray-200 rounded-lg">
+        <img src="https://ai.quartzwarrior.xyz/transparent_logo.png" alt="Logo"
+            class="rounded-full float-left h-12 w-12 m-2 dark:bg-gray-900 bg-gray-50">
+        <p class="w-11/12 h-1/2 py-6 m-2 bg-transparent text-left">QuartzAI</p>
+        <p class="w-11/12 h-1/2 pl-6 pt-2 pb-4 m-2 bg-transparent">What can I help you with?</p>
+    </div>-->
+</div>
+<div class="container ml-2 mt-2 h-auto w-1/6 dark:bg-gray-700 bg-gray-200 rounded-md float-left text-sm">
+    <button onclick="addChat()" class="p-2 w-full text-center rounded-md">New Chat</button>
+</div>
+<div id="chatList"
+    class="container overflow-y-auto ml-2 mt-2 w-1/6 h-3/4 dark:bg-gray-800 bg-gray-100 rounded-md float-left text-sm">
+    <!-- <div tabindex="1"
+        class="container mx-auto mt-2 h-1/6 w-11/12 outline outline-0 outline-offset-2 hover:outline-1 outline-slate-500 dark:hover:bg-slate-700 hover:bg-slate-200 dark:bg-gray-700 bg-gray-200 rounded-lg">
+        <p class="w-11/12 h-1/2 p-2 m-2 bg-transparent text-left">Chat 1</p>
+    </div>
+    <div tabindex="2"
+        class="container mx-auto mt-2 h-1/6 w-11/12 outline outline-0 outline-offset-2 hover:outline-1 outline-slate-500 dark:hover:bg-slate-700 hover:bg-slate-200 dark:bg-gray-700 bg-gray-200 rounded-lg">
+        <p class="w-11/12 h-1/2 p-2 m-2 bg-transparent text-left">Chat 2</p>
+    </div>
+    <div tabindex="3"
+        class="container mx-auto mt-2 h-1/6 w-11/12 outline outline-0 outline-offset-2 hover:outline-1 outline-slate-500 dark:hover:bg-slate-700 hover:bg-slate-200 dark:bg-gray-700 bg-gray-200 rounded-lg">
+        <p class="w-11/12 h-1/2 p-2 m-2 bg-transparent text-left">Chat 3</p>
+    </div>
+    <div tabindex="4"
+        class="container mx-auto mt-2 h-1/6 w-11/12 outline outline-0 outline-offset-2 hover:outline-1 outline-slate-500 dark:hover:bg-slate-700 hover:bg-slate-200 dark:bg-gray-700 bg-gray-200 rounded-lg">
+        <p class="w-11/12 h-1/2 p-2 m-2 bg-transparent text-left">Chat 4</p>
+    </div>
+    <div tabindex="5"
+        class="container mx-auto mt-2 h-1/6 w-11/12 outline outline-0 outline-offset-2 hover:outline-1 outline-slate-500 dark:hover:bg-slate-700 hover:bg-slate-200 dark:bg-gray-700 bg-gray-200 rounded-lg">
+        <p class="w-11/12 h-1/2 p-2 m-2 bg-transparent text-left">Chat 5</p>
+    </div>
+    <div tabindex="6"
+        class="container mx-auto mt-2 h-1/6 w-11/12 outline outline-0 outline-offset-2 hover:outline-1 outline-slate-500 dark:hover:bg-slate-700 hover:bg-slate-200 dark:bg-gray-700 bg-gray-200 rounded-lg">
+        <p class="w-11/12 h-1/2 p-2 m-2 bg-transparent text-left">Chat 6</p>
+    </div>
+    <div tabindex="7"
+        class="container mx-auto mt-2 h-1/6 w-11/12 outline outline-0 outline-offset-2 hover:outline-1 outline-slate-500 dark:hover:bg-slate-700 hover:bg-slate-200 dark:bg-gray-700 bg-gray-200 rounded-lg">
+        <p class="w-11/12 h-1/2 p-2 m-2 bg-transparent text-left">Chat 7</p>
+    </div> -->
+</div>
+<div class="container mr-2 mb-2 w-4/5 h-1/6 mt-2 dark:bg-gray-800 bg-gray-100 rounded-md float-right text-sm">
+    <div class="container mx-auto my-2.5 w-11/12 p-4 h-5/6 dark:bg-gray-700 bg-gray-200 rounded-lg">
+        <input id="chat" type="text" class="w-full h-full bg-transparent border-none focus:outline-none focus:ring-0"
+            placeholder="Type here..."></input>
+    </div>
+</div>
+<div
+    class="flex items-center justify-center container leading-6 border dark:border-white border-gray-500 border-dashed ml-2 mb-2 w-1/6 h-1/6 mt-2 dark:bg-gray-800 bg-gray-100 rounded-md float-left text-sm">
+    <div class="p-2 truncate">
+        <b>QuartzAI v0.1</b> <br>
+
+        Made by <u>QuartzWarrior</u> <br>
+
+        Logged in as <u>{{username}}</u> <br>
+
+        <button onclick="document.getElementById('settings').classList.remove('hidden');"
+            class="container w-11/12 h-fit rounded-lg text-center dark:hover:bg-slate-700 hover:bg-slate-200 dark:bg-gray-700 bg-gray-200 float-none">SETTINGS</button>
+    </div>
+</div>
+<div id="settings" class="fixed top-4 right-4 bottom-4 left-4 bg-gray-500 rounded-md hidden">
+    <button onclick="document.getElementById('settings').classList.add('hidden');"
+        class="absolute top-4 right-4 h-8 w-8 text-xl text-white bg-red-600 rounded-lg text-center">X</button>
+
+    <div class="container mx-auto my-4 w-11/12 p-4 h-5/6 dark:bg-gray-700 bg-gray-200 rounded-lg">
+        <h2 class="text-lg font-bold mb-4">Settings</h2>
+        <!--
+        <label for="api-key" class="block mb-2">API Key:</label>
+        
+        <input id="api-key" type="text"
+            class="text-black w-full h-8 px-2 mb-4 rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="quartzai-*****" value="{{api_key}}">-->
+
+        <label for="model-selection" class="block mb-2">Model Selection:</label>
+        <select id="model-selection"
+            class="text-black w-full h-8 px-2 mb-4 rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="gpt_35_turbo" {% if model=='gpt_35_turbo' %}selected{% endif %}>
+                GPT-3.5-Turbo</option>
+            <option value="gpt_4" {% if model=='gpt_4' %}selected{% endif %}>GPT-4</option>
+            <option value="llama2_7b" {% if model=='llama2_7b' %}selected{% endif %}>Llama 2 7b
+            </option>
+            <option value="llama2_13b" {% if model=='llama2_13b' %}selected{% endif %}>Llama 2
+                13b
+            </option>
+            <option value="llama2_70b" {% if model=='llama2_70b' %}selected{% endif %}>Llama 2
+                70b
+            </option>
+            <option value="gemini" {% if model=='gemini' %}selected{% endif %}>Gemini</option>
+        </select>
+
+        <button onclick="saveSettings()"
+            class="w-full h-10 bg-blue-500 text-white rounded-md hover:bg-blue-600">Save</button>
+    </div>
+</div>
+</body>
+
+<script src="/marked.min.js"></script>
+
+<!--<script src="/marked-highlight.min.js"></script>-->
+
+<script src="/purify.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        chat_list = document.getElementById("chatList");
+        chat_lists = localStorage.getItem("chatList");
+        if (chat_lists) {
+            chat_lists = JSON.parse(chat_lists);
+            for (var i = 0; i < chat_lists.length; i++) {
+                var chat_list = chat_lists[i];
+                var chat_list_name = chat_list.name;
+
+                var newChatList = document.createElement("div");
+                newChatList.classList.add("container", "mx-auto", "mt-2", "h-1/6", "w-11/12", "outline", "outline-0", "outline-offset-2", "hover:outline-1", "outline-slate-500", "dark:hover:bg-slate-700", "hover:bg-slate-200", "dark:bg-gray-700", "bg-gray-200", "rounded-lg");
+                var newChatItemText = document.createElement('p');
+                newChatItemText.classList.add('w-11/12', 'h-1/2', 'p-2', 'm-2', 'bg-transparent', 'text-left')
+                newChatItemText.innerHTML = chat_list_name;
+                newChatList.appendChild(newChatItemText);
+                newChatList.setAttribute("tabindex", (parseInt(i) + 1).toString());
+                document.getElementById("chatList").appendChild(newChatList);
+            }
+        }
+        var chatItems = document.querySelectorAll('#chatList .container');
+        chatItems.forEach(item => {
+            item.addEventListener('focus', function () {
+                var chatItems = document.querySelectorAll('#chatList .container');
+                chatItems.forEach(item => {
+                    item.classList.remove('focused', 'outline-1', 'dark:bg-slate-800', 'bg-slate-300');
+                    item.classList.add('outline-0', 'dark:bg-gray-700', 'bg-gray-200');
+                });
+                this.classList.remove('outline-0', 'dark:bg-gray-700', 'bg-gray-200')
+                this.classList.add('focused', 'outline-1', 'dark:bg-slate-800', 'bg-slate-300');
+                localStorage.setItem("selectedChat", (parseInt(this.getAttribute("tabindex")) - 1).toString());
+                var chatData = localStorage.getItem("chatData");
+                document.getElementById("cards").innerHTML = `
+                    <div class="container mx-auto mt-4 w-11/12 h-fit dark:bg-gray-700 bg-gray-200 rounded-lg">
+                        <img src="https://ai.quartzwarrior.xyz/transparent_logo.png" alt="Logo"
+                                class="rounded-full float-left h-12 w-12 m-2 dark:bg-gray-900 bg-gray-50">
+                        <p class="w-11/12 h-1/2 py-6 m-2 bg-transparent text-left">QuartzAI</p>
+                        <p class="w-11/12 h-1/2 pl-6 pt-2 pb-4 m-2 bg-transparent">Hi! I am QuartzAI.</p>
+                    </div>`;
+                if (chatData) {
+                    chatData = JSON.parse(chatData);
+                    chatData = chatData[localStorage.getItem("selectedChat")];
+                    for (var i = 0; i < chatData.length; i++) {
+                        var chatItem = chatData[i];
+                        var chatName = chatItem.chatName;
+                        var chatText = chatItem.chatText;
+
+                        var newChat = document.createElement("div");
+                        newChat.classList.add("container", "mx-auto", "mt-4", "w-11/12", "h-fit", "dark:bg-gray-700", "bg-gray-200", "rounded-lg");
+                        var newChatImg = document.createElement("img");
+                        newChatImg.classList.add("rounded-full", chatName === "QuartzAI" ? "float-left" : "float-right", "h-12", "w-12", chatName === "QuartzAI" ? "m-2" : "mr-2", "mt-2", "dark:bg-gray-900", "bg-gray-50");
+                        newChatImg.src = chatName === "QuartzAI" ? "https://ai.quartzwarrior.xyz/transparent_logo.png" : "{{ user_pfp }}";
+                        newChat.appendChild(newChatImg);
+                        var newChatName = document.createElement("p");
+                        newChatName.classList.add("w-11/12", "h-1/2", "py-6", "m-2", "bg-transparent", chatName === "QuartzAI" ? "text-left" : "text-right");
+                        newChatName.innerHTML = chatName;
+                        newChat.appendChild(newChatName);
+                        var newChatText = document.createElement("p");
+                        newChatText.classList.add("w-11/12", "h-1/2", "pl-6", "pt-2", "pb-4", "m-2", "bg-transparent");
+                        newChatText.innerHTML = DOMPurify.sanitize(marked.parse(chatText));
+                        newChat.appendChild(newChatText);
+                        document.getElementById("cards").appendChild(newChat);
+                        document.getElementById("cards").scrollTop = document.getElementById("cards").scrollHeight;
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    marked.use({
+        breaks: true,
+        gfm: true,
+    });
+    var model = localStorage.getItem("model");
+    if (model) {
+        document.getElementById("model-selection").value = model;
+    } else {
+        localStorage.setItem("model", "gpt_35_turbo");
+        model = "gpt_35_turbo";
+    }
+    function addChat() {
+        var chatList = localStorage.getItem("chatList");
+        if (chatList) {
+            chatList = JSON.parse(chatList);
+        } else {
+            chatList = [];
+        }
+        var num = document.getElementById('chatList').children.length + 1;
+        chatList.push({
+            name: "Chat " + num.toString()
+        });
+        localStorage.setItem("chatList", JSON.stringify(chatList));
+        var newChatItem = document.createElement('div');
+        newChatItem.classList.add('container', 'mx-auto', 'mt-2', 'h-1/6', 'w-11/12', 'outline', 'outline-0', 'outline-offset-2', 'hover:outline-1', 'outline-slate-500', 'dark:hover:bg-slate-700', 'hover:bg-slate-200', 'dark:bg-gray-700', 'bg-gray-200', 'rounded-lg');
+        var newChatItemText = document.createElement('p');
+        newChatItemText.classList.add('w-11/12', 'h-1/2', 'p-2', 'm-2', 'bg-transparent', 'text-left')
+        newChatItemText.innerHTML = "Chat " + num.toString();
+        newChatItem.appendChild(newChatItemText);
+        newChatItem.setAttribute('tabindex', num.toString());
+        document.getElementById('chatList').appendChild(newChatItem);
+        newChatItem.addEventListener('focus', function () {
+            chatItems = document.querySelectorAll('#chatList .container');
+            chatItems.forEach(item => {
+                item.classList.remove('focused', 'outline-1', 'dark:bg-slate-800', 'bg-slate-300');
+                item.classList.add('outline-0', 'dark:bg-gray-700', 'bg-gray-200');
+            });
+            this.classList.remove('outline-0', 'dark:bg-gray-700', 'bg-gray-200')
+            this.classList.add('focused', 'outline-1', 'dark:bg-slate-800', 'bg-slate-300');
+            localStorage.setItem("selectedChat", (parseInt(this.getAttribute("tabindex")) - 1).toString());
+            var chatData = localStorage.getItem("chatData");
+            document.getElementById("cards").innerHTML = `
+                    <div class="container mx-auto mt-4 w-11/12 h-fit dark:bg-gray-700 bg-gray-200 rounded-lg">
+                        <img src="https://ai.quartzwarrior.xyz/transparent_logo.png" alt="Logo"
+                                class="rounded-full float-left h-12 w-12 m-2 dark:bg-gray-900 bg-gray-50">
+                        <p class="w-11/12 h-1/2 py-6 m-2 bg-transparent text-left">QuartzAI</p>
+                        <p class="w-11/12 h-1/2 pl-6 pt-2 pb-4 m-2 bg-transparent">Hi! I am QuartzAI.</p>
+                    </div>`;
+            if (chatData) {
+                chatData = JSON.parse(chatData);
+                chatData = chatData[localStorage.getItem("selectedChat")];
+                for (var i = 0; i < chatData.length; i++) {
+                    var chatItem = chatData[i];
+                    var chatName = chatItem.chatName;
+                    var chatText = chatItem.chatText;
+
+                    var newChat = document.createElement("div");
+                    newChat.classList.add("container", "mx-auto", "mt-4", "w-11/12", "h-fit", "dark:bg-gray-700", "bg-gray-200", "rounded-lg");
+                    var newChatImg = document.createElement("img");
+                    newChatImg.classList.add("rounded-full", chatName === "QuartzAI" ? "float-left" : "float-right", "h-12", "w-12", chatName === "QuartzAI" ? "m-2" : "mr-2", "mt-2", "dark:bg-gray-900", "bg-gray-50");
+                    newChatImg.src = chatName === "QuartzAI" ? "https://ai.quartzwarrior.xyz/transparent_logo.png" : "{{ user_pfp }}";
+                    newChat.appendChild(newChatImg);
+                    var newChatName = document.createElement("p");
+                    newChatName.classList.add("w-11/12", "h-1/2", "py-6", "m-2", "bg-transparent", chatName === "QuartzAI" ? "text-left" : "text-right");
+                    newChatName.innerHTML = chatName;
+                    newChat.appendChild(newChatName);
+                    var newChatText = document.createElement("p");
+                    newChatText.classList.add("w-11/12", "h-1/2", "pl-6", "pt-2", "pb-4", "m-2", "bg-transparent");
+                    newChatText.innerHTML = DOMPurify.sanitize(marked.parse(chatText));
+                    newChat.appendChild(newChatText);
+                    document.getElementById("cards").appendChild(newChat);
+                    document.getElementById("cards").scrollTop = document.getElementById("cards").scrollHeight;
+                }
+            }
+        });
+        newChatItem.focus();
+    }
+    function saveSettings() {
+        var model = document.getElementById("model-selection").value;
+
+        localStorage.setItem("model", model);
+
+        document.getElementById('settings').classList.add('hidden');
+    }
+    var input = document.getElementById("chat");
+    input.addEventListener("keyup", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            var currentData = localStorage.getItem("chatData");
+            var currentChatData = []
+            if (currentData) {
+                currentData = JSON.parse(currentData);
+            } else {
+                currentData = {};
+            }
+            if (!localStorage.getItem("selectedChat")) {
+                addChat();
+            }
+            try {
+                currentChatData = currentData[localStorage.getItem("selectedChat")];
+            }
+            catch (e) {
+                currentData[localStorage.getItem("selectedChat")] = [];
+                currentChatData = [];
+            }
+            if (!currentChatData) {
+                currentData[localStorage.getItem("selectedChat")] = [];
+                currentChatData = [];
+            }
+            var newChat = document.createElement("div");
+            newChat.classList.add("container", "mx-auto", "mt-4", "w-11/12", "h-fit", "dark:bg-gray-700", "bg-gray-200", "rounded-lg");
+            var newChatImg = document.createElement("img");
+            newChatImg.classList.add("rounded-full", "float-right", "h-12", "w-12", "mr-2", "mt-2", "dark:bg-gray-900", "bg-gray-50");
+            newChatImg.src = "{{ user_pfp }}";
+            newChat.appendChild(newChatImg);
+            var newChatName = document.createElement("p");
+            newChatName.classList.add("w-11/12", "h-1/2", "py-6", "m-2", "bg-transparent", "text-right");
+            newChatName.innerHTML = "{{ username }}";
+            newChat.appendChild(newChatName);
+            var newChatText = document.createElement("p");
+            newChatText.classList.add("w-11/12", "h-1/2", "pl-6", "pt-2", "pb-4", "m-2", "bg-transparent");
+            newChatText.innerHTML = DOMPurify.sanitize(input.value);
+            newChat.appendChild(newChatText);
+            document.getElementById("cards").appendChild(newChat);
+            document.getElementById("cards").scrollTop = document.getElementById("cards").scrollHeight;
+            currentChatData.push({
+                chatName: "{{ username }}",
+                chatText: input.value
+            });
+            currentData[localStorage.getItem("selectedChat")] = currentChatData;
+            localStorage.setItem("chatData", JSON.stringify(currentData));
+            fetch('https://ai.quartzwarrior.xyz/v1/chat/completions?api_key={{ api_key }}&model=' + model, {
+                method: 'POST',
+                body: JSON.stringify({"prompt": input.value}),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    var newChat = document.createElement("div");
+                    newChat.classList.add("container", "mx-auto", "mt-4", "w-11/12", "h-fit", "dark:bg-gray-700", "bg-gray-200", "rounded-lg");
+                    var newChatImg = document.createElement("img");
+                    newChatImg.classList.add("rounded-full", "float-left", "h-12", "w-12", "m-2", "dark:bg-gray-900", "bg-gray-50");
+                    newChatImg.src = "https://ai.quartzwarrior.xyz/transparent_logo.png";
+                    newChat.appendChild(newChatImg);
+                    var newChatName = document.createElement("p");
+                    newChatName.classList.add("w-11/12", "h-1/2", "py-6", "m-2", "bg-transparent", "text-left");
+                    newChatName.innerHTML = "QuartzAI";
+                    newChat.appendChild(newChatName);
+                    var newChatText = document.createElement("p");
+                    newChatText.classList.add("w-11/12", "h-1/2", "pl-6", "pt-2", "pb-4", "m-2", "bg-transparent");
+                    newChatText.innerHTML = DOMPurify.sanitize(marked.parse(data["responses"][0]["message"]["content"]));
+                    newChat.appendChild(newChatText);
+                    document.getElementById("cards").appendChild(newChat);
+                    document.getElementById("cards").scrollTop = document.getElementById("cards").scrollHeight;
+                    currentChatData.push({
+                        chatName: "QuartzAI",
+                        chatText: data["responses"][0]["message"]["content"]
+                    });
+                    currentData[localStorage.getItem("selectedChat")] = currentChatData;
+                    localStorage.setItem("chatData", JSON.stringify(currentData));
+                    document.getElementById("chat").value = "";
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            document.getElementById("chat").value = "";
+        }
+    });
+</script>
+
+</html>

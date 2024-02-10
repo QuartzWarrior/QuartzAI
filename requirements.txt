@@ -1,4 +1,11 @@
 undetected-chromedriver
 selenium
 nextcord[speed]
-g4f
+git+https://github.com/xtekky/gpt4free.git
+git+https://github.com/QuartzWarrior/Quart-Nextcord.git
+ujson
+nextcord-ext-ipc
+quart-rate-limiter
+google-generativeai
+ipython
+google-api-python-client
