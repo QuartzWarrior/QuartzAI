@@ -20,8 +20,8 @@
 
 ## 📖 | **Info**
 > - **API Key**: You can obtain an API key by joining the server below.
-> **Support Server:**  https://discord.gg/quartzai
-> **Owner:** quartzwarrior
-> **Version:** 1.6.2 | **Upcoming Version:** 2.0.1
-> **Language(s):** ``Python``
+> - **Support Server:**  https://discord.gg/quartzai
+> - **Owner:** quartzwarrior
+> - **Version:** 1.6.2 | **Upcoming Version:** 2.0.1
+> - **Language(s):** ``Python``
 
