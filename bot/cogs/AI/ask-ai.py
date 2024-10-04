@@ -63,6 +63,9 @@ class Ask_ai(commands.Cog):
                 self.add_item(self.next_button)
 
             async def go_previous(self, interaction: Interaction):
+                if interaction.user != self.original_user:
+                    await self.send_permission_error(interaction)
+                    return
                 if self.current_page > 0:
                     self.current_page -= 1
                     e2.description = f"> **Model:** {model}\n> **Prompt:**  {prompt}\n\n> **Response:**\n{pages[self.current_page]}"
@@ -71,12 +74,24 @@ class Ask_ai(commands.Cog):
                     await interaction.response.edit_message(embed=e2, view=self)
 
             async def go_next(self, interaction: Interaction):
+                if interaction.user != self.original_user:
+                    await self.send_permission_error(interaction)
+                    return
                 if self.current_page < total_pages - 1:
                     self.current_page += 1
                     e2.description = f"> **Model:** {model}\n> **Prompt:**  {prompt}\n\n> **Response:**\n{pages[self.current_page]}"
                     e2.set_footer(text=f"Page: {self.current_page + 1} | Total Pages: {total_pages}")
                     self.update_buttons()
                     await interaction.response.edit_message(embed=e2, view=self)
+
+            async def send_permission_error(self, interaction: Interaction):
+                error_embed = Embed(
+                    title="Uh Oh!",
+                    description="> **You Aren't The Involker Of This Command",
+                    color=nextcord.Color.red()
+                )
+                error_embed.set_footer(text="Run Your Own Using /ask-ai")
+                await interaction.response.send_message(embed=error_embed, ephemeral=True)
 
             def update_buttons(self):
                 self.previous_button.disabled = (self.current_page == 0)
