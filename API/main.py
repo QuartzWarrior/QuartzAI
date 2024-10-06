@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 import json
 from utils.key_check import check_api_key
-from providers.one import generate_response
+from providers.one import text_gen
 from typing import List
 import logging
 
@@ -27,7 +27,8 @@ def models():
 async def chat_completions(
     authorization: str = Header(None),
     content_type: str = Header(None),
-    chat_request: ChatRequest = None
+    chat_request: ChatRequest = None,
+    stream: bool = False
     ):
     if not authorization:
         raise HTTPException(status_code=401, detail="Missing Authorization header")
@@ -45,7 +46,7 @@ async def chat_completions(
         raise HTTPException(status_code=400, detail="Missing messages or model in request body")
     messages_list = [{"role": msg.role, "content": msg.content} for msg in chat_request.messages]
     try:
-        completion = generate_response(messages_list, chat_request.model)
+        completion = text_gen(messages_list, chat_request.model, stream=stream)
         return JSONResponse(content=completion)
 
     except ValueError as e:
@@ -60,4 +61,4 @@ async def chat_completions(
 
 if __name__ == '__main__':
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
