@@ -1,14 +1,199 @@
 {
     "data": [
         {
-            "id": "",
-            "owned_by": "",
-            "endpoint": ""
+            "id": "gpt-4o",
+            "owned_by": "openai",
+            "endpoint": "chat.completions"
         },
         {
-            "id": "",
-            "owned_by": "",
-            "endpoint": ""
+            "id": "gpt-4-turbo",
+            "owned_by": "openai",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "gpt-4",
+            "owned_by": "openai",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "gpt-4o-mini",
+            "owned_by": "openai",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "command-r-plus",
+            "owned_by": "openai",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "gpt-3.5-turbo",
+            "owned_by": "openai",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "claude-3-haiku",
+            "owned_by": "anthropic",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "claude-3-sonnet",
+            "owned_by": "anthropic",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "claude-3-5-sonnet",
+            "owned_by": "anthropic",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "claude-3-opus",
+            "owned_by": "anthropic",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "llama-3-70b",
+            "owned_by": "meta",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "llama-3-8b",
+            "owned_by": "meta",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "llama-2-13b",
+            "owned_by": "meta",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "llama-3.1-405b",
+            "owned_by": "meta",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "llama-3.1-70b",
+            "owned_by": "meta",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "llama-3.1-8b",
+            "owned_by": "meta",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "llamaguard-2-8b",
+            "owned_by": "meta",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "llamaguard-7b",
+            "owned_by": "meta",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "llama-3.2-90b",
+            "owned_by": "meta",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "mixtral-8x7b",
+            "owned_by": "mixtral",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "mixtral-8x22b",
+            "owned_by": "mixtral",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "mistral-7b",
+            "owned_by": "mistral",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "qwen-1.5-7b",
+            "owned_by": "baai",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "qwen-1.5-14b",
+            "owned_by": "baai",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "qwen-1.5-72b",
+            "owned_by": "baai",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "qwen-1.5-110b",
+            "owned_by": "baai",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "qwen-2-72b",
+            "owned_by": "baai",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "gemma-2b",
+            "owned_by": "gemma",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "gemma-2-9b",
+            "owned_by": "gemma",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "gemma-2-27b",
+            "owned_by": "gemma",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "gemini-flash",
+            "owned_by": "google",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "gemini-pro",
+            "owned_by": "google",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "deepseek",
+            "owned_by": "deepmind",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "mixtral-8x7b-dpo",
+            "owned_by": "mixtral",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "yi-34b",
+            "owned_by": "baidu",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "wizardlm-2-8x22b",
+            "owned_by": "wizard",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "solar-10.7b",
+            "owned_by": "solarity",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "mythomax-l2-13b",
+            "owned_by": "mythic",
+            "endpoint": "chat.completions"
+        },
+        {
+            "id": "cosmosrp",
+            "owned_by": "cosmos",
+            "endpoint": "chat.completions"
         }
     ]
 }

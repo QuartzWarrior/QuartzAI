@@ -54,8 +54,7 @@ async def chat_completions(
             "message": str(e)
         })
     except Exception as e:
-        logging.error(f"An error occurred: {str(e)}")
-        raise HTTPException(status_code=500, detail="An error occurred while generating a response.")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
 
 
 
