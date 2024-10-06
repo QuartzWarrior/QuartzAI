@@ -9,6 +9,8 @@ class on_member_join(commands.Cog):
     @commands.Cog.listener()
     async def on_member_join(self, member):
         channel = self.bot.get_channel(self.welcome_channel_id)
+        role = member.guild.get_role(1290877818405654550)
+        await member.add_roles(role)
         if channel:
             embed = nextcord.Embed(title=f"Welcome {member.name}", description="> **Make Sure To Read The Server <#1290871802746245212>**\n> **API Support:** <#1291117576927318067>\n> **API Endpoints:** <#1291117672443936871>\n", color=nextcord.Color.purple())
             embed.set_footer(text=f"ID: {member.id}")
