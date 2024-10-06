@@ -6,8 +6,8 @@ from utils.key_check import check_api_key
 from providers.one import generate_response
 from typing import List
 import logging
-app = FastAPI()
 
+app = FastAPI()
 
 class Message(BaseModel):
     role: str
@@ -17,14 +17,12 @@ class ChatRequest(BaseModel):
     messages: List[Message]
     model: str
 
-
 @app.get("/v1/models")
 def models():
     with open('models.json') as f:
         models = json.load(f)
         return JSONResponse(content=models, media_type="application/json")
     
-
 @app.post("/v1/chat/completions")
 async def chat_completions(
     authorization: str = Header(None),
