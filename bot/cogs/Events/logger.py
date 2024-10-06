@@ -1,8 +1,7 @@
 import nextcord
 from nextcord.ext import commands
 
-
-LOG_ID = 1292285058652307516
+LOG_CHANNEL_ID = 1292285058652307516
 
 class Logger(commands.Cog):
     def __init__(self, bot):
@@ -31,6 +30,42 @@ class Logger(commands.Cog):
             )
             embed.set_thumbnail(url=member.avatar.url if member.avatar else member.default_avatar.url)
             await channel.send(embed=embed)
+
+    @commands.Cog.listener()
+    async def on_member_ban(self, guild, user):
+        channel = self.get_logging_channel(guild)
+        if channel:
+            embed = nextcord.Embed(
+                title='🔨 | Member Banned',
+                description=f'> **User:** {user.name}\n> **ID:** `{user.id}`',
+                color=nextcord.Color.dark_red()
+            )
+            embed.set_thumbnail(url=user.avatar.url if user.avatar else user.default_avatar.url)
+            await channel.send(embed=embed)
+
+    @commands.Cog.listener()
+    async def on_member_unban(self, guild, user):
+        channel = self.get_logging_channel(guild)
+        if channel:
+            embed = nextcord.Embed(
+                title='🔓 | Member Unbanned',
+                description=f'> **User:** {user.name}\n> **ID:** `{user.id}`',
+                color=nextcord.Color.green()
+            )
+            embed.set_thumbnail(url=user.avatar.url if user.avatar else user.default_avatar.url)
+            await channel.send(embed=embed)
+
+    @commands.Cog.listener()
+    async def on_member_update(self, before, after):
+        channel = self.get_logging_channel(before.guild)
+        if channel:
+            if before.timeout != after.timeout:
+                embed = nextcord.Embed(
+                    title='⏳ | Member Timeout Updated',
+                    description=f'> **User:** {before.name}\n> **ID:** `{before.id}`\n> **Before:** `{before.timeout}`\n> **After:** `{after.timeout}`',
+                    color=nextcord.Color.orange()
+                )
+                await channel.send(embed=embed)
 
     @commands.Cog.listener()
     async def on_message_edit(self, before, after):
@@ -64,7 +99,7 @@ class Logger(commands.Cog):
         if channel:
             embed = nextcord.Embed(
                 title='✨ | Role Created',
-                description=f'> **Name:** `{role.name}`\n> **ID:** `{role.id}`',
+                description=f'> **Name:** `{role.name}`\n> **ID:** `{role.id}`\n> **Color:** `{role.color}`',
                 color=nextcord.Color.green()
             )
             await channel.send(embed=embed)
@@ -75,7 +110,7 @@ class Logger(commands.Cog):
         if channel:
             embed = nextcord.Embed(
                 title='🚫 | Role Deleted',
-                description=f'> **Name:** `{role.name}`\n> **ID:** `{role.id}`',
+                description=f'> **Name:** `{role.name}`\n> **ID:** `{role.id}`\n> **Color:** `{role.color}`',
                 color=nextcord.Color.red()
             )
             await channel.send(embed=embed)
@@ -84,9 +119,16 @@ class Logger(commands.Cog):
     async def on_guild_role_update(self, before, after):
         channel = self.get_logging_channel(before.guild)
         if channel:
+            changes = []
+            if before.name != after.name:
+                changes.append(f'**Name:** `{before.name}` -> `{after.name}`')
+            if before.color != after.color:
+                changes.append(f'**Color:** `{before.color}` -> `{after.color}`')
+            if before.permissions != after.permissions:
+                changes.append(f'**Permissions Changed**')
             embed = nextcord.Embed(
                 title='🔄 | Role Updated',
-                description=f'> **Before:** `{before.name}`\n> **After:** `{after.name}`\n> **ID:** `{before.id}`',
+                description='> ' + '\n> '.join(changes) + f'\n> **ID:** `{before.id}`',
                 color=nextcord.Color.blue()
             )
             await channel.send(embed=embed)
@@ -113,9 +155,19 @@ class Logger(commands.Cog):
             )
             await log_channel.send(embed=embed)
 
+    @commands.Cog.listener()
+    async def on_webhooks_update(self, channel):
+        log_channel = self.get_logging_channel(channel.guild)
+        if log_channel:
+            embed = nextcord.Embed(
+                title='🔗 | Webhook Updated',
+                description=f'> **Channel:** {channel.mention}\n> **ID:** `{channel.id}`',
+                color=nextcord.Color.purple()
+            )
+            await log_channel.send(embed=embed)
+
     def get_logging_channel(self, guild):
-        return guild.get_channel(LOG_ID)
+        return guild.get_channel(LOG_CHANNEL_ID)
 
 def setup(bot):
     bot.add_cog(Logger(bot))
-
